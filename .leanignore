@@ -1,0 +1,8 @@
+.git/
+.DS_Store
+.avoscloud/
+.leancloud/
+.project
+.classpath
+.settings/
+target/
