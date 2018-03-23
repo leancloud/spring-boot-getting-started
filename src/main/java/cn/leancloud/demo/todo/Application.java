@@ -1,5 +1,6 @@
 package cn.leancloud.demo.todo;
 
+import com.avos.avoscloud.AVCloud;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
@@ -22,11 +23,17 @@ public class Application {
   private static String appId = System.getenv("LEANCLOUD_APP_ID");
   private static String appKey = System.getenv("LEANCLOUD_APP_KEY");
   private static String appMasterKey = System.getenv("LEANCLOUD_APP_MASTER_KEY");
+  private static String appEnv = System.getenv("LEANCLOUD_APP_ENV");
+  private static String haveStaging = System.getenv("LEAN_CLI_HAVE_STAGING");
 
   public static void main(String[] args) throws Exception {
     logger.info("LeanEngine app init.");
     // 注册子类化
     AVObject.registerSubclass(Todo.class);
+
+    if ("development".equals(appEnv) && "true".equals(haveStaging) || "stage".equals(appEnv)) {
+      AVCloud.setProductionMode(false);
+    }
     // 初始化AVOSCloud，请保证在整个项目中间只初始化一次
     LeanEngine.initialize(appId, appKey, appMasterKey);
     // 在请求签名中使用masterKey以激活云代码的最高权限
@@ -35,11 +42,6 @@ public class Application {
     // AVOSCloud.setDebugLogEnabled(true);
     // 向云引擎注册云函数
     LeanEngine.register(Cloud.class);
-    if (System.getenv("LEANCLOUD_APP_ENV").equals("development")) {
-      // 如果是开发环境，则设置 AVCloud.callFunction 和 AVCloud.rpcFunction 调用本地云函数实现
-      // 如果需要本地开发时调用云端云函数实现，则注释掉下面语句。
-      LeanEngine.setLocalEngineCallEnabled(true);
-    }
     SpringApplication.run(Application.class, args);
   }
 
