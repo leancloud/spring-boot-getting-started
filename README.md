@@ -15,24 +15,26 @@ $ git clone https://github.com/leancloud/spring-boot-getting-started.git
 $ cd spring-boot-getting-started
 ```
 
-安装依赖：
+1. 安装依赖：
 
 ```
 mvn package
 ```
 
-关联应用：
-
+2. 关联应用：
+将目标应用的 appId/appKey/masterKey，填入 local.sh 脚本
 ```
-lean checkout
+export LC_APP_ID=
+export LC_APP_KEY=
+export LEANCLOUD_APP_ID=
+export LEANCLOUD_APP_KEY=
+export LEANCLOUD_APP_MASTER_KEY=
 ```
 
-根据提示选择需要关联的应用。
-
-启动项目：
-
+3. 启动项目：
+在项目根目录下运行如下脚本：
 ```
-lean up
+./local.sh
 ```
 
 应用即可启动运行：[localhost:3000](http://localhost:3000)
