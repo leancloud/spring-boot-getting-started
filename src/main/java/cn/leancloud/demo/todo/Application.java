@@ -10,7 +10,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 
 import cn.leancloud.AVCloud;
 import cn.leancloud.AVObject;
-import cn.leancloud.core.RequestSignImplementation;
+import cn.leancloud.core.GeneralRequestSignature;
 
 import cn.leancloud.LeanEngine;
 
@@ -38,7 +38,7 @@ public class Application {
     // 初始化AVOSCloud，请保证在整个项目中间只初始化一次
     LeanEngine.initialize(appId, appKey, appMasterKey);
     // 在请求签名中使用masterKey以激活云代码的最高权限
-    RequestSignImplementation.setMasterKey(appMasterKey);
+    GeneralRequestSignature.setMasterKey(appMasterKey);
     // 打开 debug 日志
     // AVOSCloud.setDebugLogEnabled(true);
     // 向云引擎注册云函数

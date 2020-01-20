@@ -22,7 +22,7 @@
     <dependency>
       <groupId>cn.leancloud</groupId>
       <artifactId>engine-core</artifactId>
-      <version>5.0.23</version>
+      <version>6.2.1</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
