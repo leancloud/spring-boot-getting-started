@@ -24,6 +24,7 @@ public class Application {
   private static String appId = System.getenv("LEANCLOUD_APP_ID");
   private static String appKey = System.getenv("LEANCLOUD_APP_KEY");
   private static String appMasterKey = System.getenv("LEANCLOUD_APP_MASTER_KEY");
+  private static String hookKey = System.getenv("LEANCLOUD_APP_HOOK_KEY");
   private static String appEnv = System.getenv("LEANCLOUD_APP_ENV");
   private static String haveStaging = System.getenv("LEAN_CLI_HAVE_STAGING");
 
@@ -36,7 +37,7 @@ public class Application {
       AVCloud.setProductionMode(false);
     }
     // 初始化AVOSCloud，请保证在整个项目中间只初始化一次
-    LeanEngine.initialize(appId, appKey, appMasterKey);
+    LeanEngine.initialize(appId, appKey, appMasterKey, hookKey);
     // 在请求签名中使用masterKey以激活云代码的最高权限
     GeneralRequestSignature.setMasterKey(appMasterKey);
     // 打开 debug 日志
