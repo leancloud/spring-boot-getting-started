@@ -1,6 +1,8 @@
 # Java Getting started
 
-A simple Java application, based on Spring Boot, packaged as a JAR file, for LeanEngine Python runtime.
+A simple Java application, based on Spring Boot, packaged as a JAR file, for LeanEngine Java runtime.
+
+Currently it only supports Java 8.
 
 ## Running Locally
 
