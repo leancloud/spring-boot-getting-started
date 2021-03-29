@@ -1,6 +1,8 @@
 package cn.leancloud.demo.todo;
 
 
+import java.util.Collections;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
@@ -21,6 +23,7 @@ public class Application {
 
   private static final Logger logger = LogManager.getLogger(Application.class);
 
+  private static String port = System.getenv("LEANCLOUD_APP_PORT");
   private static String appId = System.getenv("LEANCLOUD_APP_ID");
   private static String appKey = System.getenv("LEANCLOUD_APP_KEY");
   private static String appMasterKey = System.getenv("LEANCLOUD_APP_MASTER_KEY");
@@ -45,7 +48,10 @@ public class Application {
     // AVOSCloud.setDebugLogEnabled(true);
     // Registers cloud functions.
     LeanEngine.register(Cloud.class);
-    SpringApplication.run(Application.class, args);
+
+    SpringApplication app = new SpringApplication(Application.class);
+    app.setDefaultProperties(Collections.singletonMap("server.port", port));
+    app.run(args);
   }
 
 }

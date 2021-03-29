@@ -2,8 +2,6 @@
 
 A simple Java application, based on Spring Boot, packaged as a JAR file, for LeanEngine Java runtime.
 
-Currently it only supports Java 8.
-
 ## Running Locally
 
 Clone this repository and install dependencies:
@@ -22,6 +20,7 @@ export LC_APP_KEY=
 export LEANCLOUD_APP_ID=
 export LEANCLOUD_APP_KEY=
 export LEANCLOUD_APP_MASTER_KEY=
+export LEANCLOUD_APP_PORT=3000
 ```
 
 Start the project locally:
