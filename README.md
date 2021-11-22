@@ -1,36 +1,6 @@
 # Java Getting started
 
 A simple Java application, based on Spring Boot, packaged as a JAR file, for LeanEngine Java runtime.
-
-## Running Locally
-
-Clone this repository and install dependencies:
-
-```sh
-git clone https://github.com/leancloud/spring-boot-getting-started.git
-cd spring-boot-getting-started
-mvn package
-```
-
-Fill application information in `local.sh`:
-
-```sh
-export LC_APP_ID=
-export LC_APP_KEY=
-export LEANCLOUD_APP_ID=
-export LEANCLOUD_APP_KEY=
-export LEANCLOUD_APP_MASTER_KEY=
-export LEANCLOUD_APP_PORT=3000
-```
-
-Start the project locally:
-
-```sh
-./local.sh
-```
-
-Open http://localhost:3000 in your browser.
-
 ## Documentation
 
 - [Java Web Hosting Guide](https://docs.leancloud.app/leanengine_webhosting_guide-java.html)
